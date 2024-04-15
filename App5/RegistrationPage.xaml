@@ -1,39 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.RegistrationPage">
 
     <Grid>
-        <Label Text="Create an Account"
-               FontSize="20"
-               HorizontalOptions="Center"
-               VerticalOptions="Start"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Spacing="10">
-            <Frame BackgroundColor="#FFC0CB" CornerRadius="10" Padding="10">
-                <Entry Placeholder="Date of Birth" BackgroundColor="LightPink"/>
-            </Frame>
+        <Label Grid.Row="0" Text="Дата рождения" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
+        <Frame Grid.Row="1" HeightRequest="40" BackgroundColor="#FFC0CB" CornerRadius="10" Padding="5" Margin="10" HasShadow="True" OutlineColor="#FF69B4">
+            <Entry BackgroundColor="Pink" />
+        </Frame>
 
-            <Frame BackgroundColor="#FFC0CB" CornerRadius="10" Padding="10">
-                <Entry Placeholder="Name" BackgroundColor="LightPink"/>
-            </Frame>
+        <Label Grid.Row="2" Text="Имя" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
+        <Frame Grid.Row="3" HeightRequest="40" BackgroundColor="#FFC0CB" CornerRadius="10" Padding="5" Margin="10" HasShadow="True" OutlineColor="#FF69B4">
+            <Entry BackgroundColor="Pink" />
+        </Frame>
 
-            <Frame BackgroundColor="#FFC0CB" CornerRadius="10" Padding="10">
-                <Entry Placeholder="Email" BackgroundColor="LightPink"/>
-            </Frame>
+        <Label Grid.Row="4" Text="Электронная почта" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
+        <Frame Grid.Row="5" HeightRequest="40" BackgroundColor="#FFC0CB" CornerRadius="10" Padding="5" Margin="10" HasShadow="True" OutlineColor="#FF69B4">
+            <Entry BackgroundColor="Pink" />
+        </Frame>
 
-            <Frame BackgroundColor="#FFC0CB" CornerRadius="10" Padding="10">
-                <Entry Placeholder="Password" BackgroundColor="LightPink"/>
-            </Frame>
-        </StackLayout>
+        <Label Grid.Row="6" Text="Пароль" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
+        <Frame Grid.Row="7" HeightRequest="40" BackgroundColor="#FFC0CB" CornerRadius="10" Padding="5" Margin="10" HasShadow="True" OutlineColor="#FF69B4">
+            <Entry BackgroundColor="Pink" />
+        </Frame>
 
-        <Button Text="Register"
+        <Button Text="Зарегистрироваться"
                 BackgroundColor="#FFC0CB"
                 TextColor="Black"
                 FontAttributes="Bold"
                 CornerRadius="30"
                 Padding="20,10"
                 FontSize="15"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="End" />
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Grid.Row="8"
+                TranslationY="120"
+                Margin="0,20"/>
     </Grid>
 </ContentPage>

@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace App5
 {
@@ -8,7 +7,7 @@ namespace App5
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage()); // Добавляем в NavigationPage
         }
 
         protected override void OnStart()
