@@ -12,7 +12,12 @@ namespace App5
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegistrationPage());
+            await Navigation.PushAsync(new RegistrationPage()); 
+        }
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage()); 
         }
     }
 }

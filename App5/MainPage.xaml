@@ -73,7 +73,8 @@
                     CornerRadius="0"
                     Padding="10"
                     FontSize="15"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    Clicked="LoginButton_Clicked"/>
         </StackLayout>
     </Grid>
 </ContentPage>
