@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <!-- New Row Definition for the button -->
+            
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Text="Дата рождения" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
@@ -47,6 +47,6 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Grid.Row="8"/>
-        <!-- Placing the button in the last row -->
+       
     </Grid>
 </ContentPage>
