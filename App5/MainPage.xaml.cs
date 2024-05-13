@@ -2,6 +2,8 @@
 using Xamarin.Essentials;
 using System;
 using System.IO;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace App5
 {
@@ -22,33 +24,33 @@ namespace App5
             await Navigation.PushAsync(new LoginPage());
         }
 
-        private void HelpButton_Clicked(object sender, EventArgs e)
+        private async void HelpButton_Clicked(object sender, EventArgs e)
         {
-            string filePath = "путь_к_вашему_файлу_с_документацией";
-            OpenDocumentation(filePath);
+            string fileName = "App5.Resources.rukovodstvo.pdf";
+            await OpenDocumentation(fileName);
         }
 
-        private async void OpenDocumentation(string filePath)
+        private async Task OpenDocumentation(string fileName)
         {
-            try
+            var assembly = Assembly.GetExecutingAssembly();
+
+            using (Stream stream = assembly.GetManifestResourceStream(fileName))
             {
-                if (File.Exists(filePath))
+                if (stream != null)
                 {
-                    await Launcher.OpenAsync(new OpenFileRequest
-                    {
-                        File = new ReadOnlyFile(filePath)
-                    });
+                    byte[] byteArray = new byte[stream.Length];
+                    await stream.ReadAsync(byteArray, 0, (int)stream.Length);
+
+                    string filePath = Path.Combine(FileSystem.CacheDirectory, "temp.pdf");
+                    File.WriteAllBytes(filePath, byteArray);
+
+                    var fileUri = new Uri(filePath, UriKind.Absolute);
+                    Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(filePath) });
                 }
                 else
                 {
-                    // Файл не найден
-                    await DisplayAlert("Ошибка", "Файл с документацией не найден", "OK");
+                    await DisplayAlert("Ошибка", "Файл справки не найден", "OK");
                 }
-            }
-            catch (Exception ex)
-            {
-                // Обработка ошибок открытия файла
-                Console.WriteLine($"Ошибка: {ex.Message}");
             }
         }
     }
