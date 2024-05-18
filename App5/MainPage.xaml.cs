@@ -53,5 +53,15 @@ namespace App5
                 }
             }
         }
+        private async void Button_Clicked1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private async void LoginButton_Clicked1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
     }
 }

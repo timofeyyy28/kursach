@@ -31,7 +31,8 @@
         HorizontalOptions="Center"
         VerticalOptions="Center"
         Grid.Row="5"
-        WidthRequest="210"/>
+        WidthRequest="210"
+        Clicked="LoginButton_Clicked1"/>
     </Grid>
 
 </ContentPage>
