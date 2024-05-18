@@ -14,27 +14,26 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Text="Дата рождения" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
         <Frame Grid.Row="1" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" />
+            <Entry BackgroundColor="Pink" TextColor="Black"/>
         </Frame>
 
         <Label Grid.Row="2" Text="Имя" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
         <Frame Grid.Row="3" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" />
+            <Entry BackgroundColor="Pink" TextColor="Black"/>
         </Frame>
 
         <Label Grid.Row="4" Text="Электронная почта" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
         <Frame Grid.Row="5" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" />
+            <Entry BackgroundColor="Pink" TextColor="Black"/>
         </Frame>
 
         <Label Grid.Row="6" Text="Пароль" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
         <Frame Grid.Row="7" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" />
+            <Entry BackgroundColor="Pink" TextColor="Black"/>
         </Frame>
 
         <Button Text="Зарегистрироваться"
@@ -47,6 +46,6 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Grid.Row="8"/>
-       
+
     </Grid>
 </ContentPage>
