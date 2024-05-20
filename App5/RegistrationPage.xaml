@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App5.RegistrationPage">
 
-    <Grid RowSpacing="10">
+    <Grid RowSpacing="10" Padding="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -16,24 +16,24 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Text="Дата рождения" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
-        <Frame Grid.Row="1" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" TextColor="Black"/>
+        <Label Grid.Row="0" Text="Дата рождения" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
+        <Frame Grid.Row="1" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry BackgroundColor="Pink" Placeholder="Введите дату рождения" TextColor="Black"/>
         </Frame>
 
-        <Label Grid.Row="2" Text="Имя" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
-        <Frame Grid.Row="3" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" TextColor="Black"/>
+        <Label Grid.Row="2" Text="Имя" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
+        <Frame Grid.Row="3" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry BackgroundColor="Pink" Placeholder="Введите имя" TextColor="Black"/>
         </Frame>
 
-        <Label Grid.Row="4" Text="Электронная почта" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
-        <Frame Grid.Row="5" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" TextColor="Black"/>
+        <Label Grid.Row="4" Text="Электронная почта" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
+        <Frame Grid.Row="5" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry BackgroundColor="Pink" Placeholder="Введите электронную почту" TextColor="Black" Keyboard="Email"/>
         </Frame>
 
-        <Label Grid.Row="6" Text="Пароль" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10"/>
-        <Frame Grid.Row="7" HeightRequest="15" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" TextColor="Black"/>
+        <Label Grid.Row="6" Text="Пароль" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
+        <Frame Grid.Row="7" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry BackgroundColor="Pink" Placeholder="Введите пароль" TextColor="Black" IsPassword="True"/>
         </Frame>
 
         <Button Text="Зарегистрироваться"

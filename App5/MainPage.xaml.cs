@@ -45,7 +45,7 @@ namespace App5
                     File.WriteAllBytes(filePath, byteArray);
 
                     var fileUri = new Uri(filePath, UriKind.Absolute);
-                    Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(filePath) });
+                    await Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(filePath) });
                 }
                 else
                 {
@@ -53,6 +53,7 @@ namespace App5
                 }
             }
         }
+
         private async void Button_Clicked1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SelectionPage());
@@ -62,6 +63,5 @@ namespace App5
         {
             await Navigation.PushAsync(new SelectionPage());
         }
-
     }
 }

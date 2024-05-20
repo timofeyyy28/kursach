@@ -32,5 +32,19 @@ namespace App5
 
             FlyoutPage.ListView.SelectedItem = null;
         }
+        private async void OnButton1Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private async void OnButton2Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private async void OnButton3Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SelectionPage());
+        }
     }
 }
