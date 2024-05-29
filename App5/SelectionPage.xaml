@@ -2,35 +2,40 @@
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="App5.SelectionPage"
-            xmlns:pages="clr-namespace:App5">
+            xmlns:pages="clr-namespace:App5"
+            IsPresented="false">
     <FlyoutPage.Flyout>
         <pages:SelectionPageFlyout x:Name="FlyoutPage" />
     </FlyoutPage.Flyout>
     <FlyoutPage.Detail>
-        <NavigationPage>
-            <x:Arguments>
-                <pages:SelectionPageDetail>
-                    <ContentPage.Content>
-                        <StackLayout>
-                            
-                            <Grid VerticalOptions="End" RowSpacing="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <ImageButton Grid.Row="1" Grid.Column="0" Source="Button_image1.png" Clicked="OnButton1Clicked"/>
-                                <ImageButton Grid.Row="1" Grid.Column="1" Source="Button_image2.png" Clicked="OnButton2Clicked"/>
-                                <ImageButton Grid.Row="1" Grid.Column="2" Source="Button_image3.png" Clicked="OnButton3Clicked"/>
-                            </Grid>
-                        </StackLayout>
-                    </ContentPage.Content>
-                </pages:SelectionPageDetail>
-            </x:Arguments>
-        </NavigationPage>
+        <ContentPage>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <!-- Content -->
+                <StackLayout Grid.Row="0">
+                    <!-- Your content here -->
+                </StackLayout>
+
+                <!-- Buttons at the bottom -->
+                <StackLayout Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Source="resource://App5.Resources.Button_image1.png" Clicked="OnButton1Clicked" HorizontalOptions="End" Grid.Column="0"
+                                     WidthRequest="100" HeightRequest="100" />
+                        <ImageButton Source="resource://App5.Resources.Button_image2.png" Clicked="OnButton2Clicked" HorizontalOptions="Center" Grid.Column="1"
+                                     WidthRequest="100" HeightRequest="100" />
+                        <ImageButton Source="resource://App5.Resources.Button_image3.png" Clicked="OnButton3Clicked" HorizontalOptions="Start" Grid.Column="2"
+                                     WidthRequest="100" HeightRequest="100" />
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ContentPage>
     </FlyoutPage.Detail>
 </FlyoutPage>
