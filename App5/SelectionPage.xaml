@@ -14,27 +14,20 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <!-- Content -->
-                <StackLayout Grid.Row="0">
-                    <!-- Your content here -->
-                </StackLayout>
 
-                <!-- Buttons at the bottom -->
-                <StackLayout Grid.Row="1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <ImageButton Source="resource://App5.Resources.Button_image1.png" Clicked="OnButton1Clicked" HorizontalOptions="End" Grid.Column="0"
-                                     WidthRequest="100" HeightRequest="100" />
-                        <ImageButton Source="resource://App5.Resources.Button_image2.png" Clicked="OnButton2Clicked" HorizontalOptions="Center" Grid.Column="1"
-                                     WidthRequest="100" HeightRequest="100" />
-                        <ImageButton Source="resource://App5.Resources.Button_image3.png" Clicked="OnButton3Clicked" HorizontalOptions="Start" Grid.Column="2"
-                                     WidthRequest="100" HeightRequest="100" />
-                    </Grid>
-                </StackLayout>
+               
+
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Source="Button_image1.png" Clicked="OnButton1Clicked"/>
+                    <ImageButton Grid.Column="1" Source="Button_image2.png" Clicked="OnButton2Clicked"/>
+                    <ImageButton Grid.Column="2" Source="Button_image3.png" Clicked="OnButton3Clicked"/>
+                </Grid>
             </Grid>
         </ContentPage>
     </FlyoutPage.Detail>

@@ -91,13 +91,17 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\Button_image2.png" />
+    <AndroidResource Include="Resources\drawable\Button_image3.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App5\App5.csproj">
       <Project>{E4E47914-8D6A-447F-A96B-CC2035BDB6E3}</Project>
       <Name>App5</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Button_image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
