@@ -15,7 +15,20 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-
+                <Frame
+                    Grid.Row="0"
+                    CornerRadius="10"
+                    BorderColor="Black"
+                    BackgroundColor="White"
+                    Margin="10"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <StackLayout Padding="10">
+                        <Image Source="photo.png" Aspect="AspectFill" HeightRequest="200"/>
+                        <Label Text="Name" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="Description" FontSize="Small"/>
+                    </StackLayout>
+                </Frame>
 
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
                     <Grid.ColumnDefinitions>
@@ -24,9 +37,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ImageButton Grid.Column="0" Source="Button1.png" Clicked="OnButton1Clicked" BackgroundColor="Color.Transparent" Scale="0.7"/>
-                    <ImageButton Grid.Column="1" Source="button22.png" Clicked="OnButton2Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
-                    <ImageButton Grid.Column="2" Source="Button3.png" Clicked="OnButton3Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
+                    <ImageButton Grid.Column="0" Source="Button1.png" Clicked="OnButton1Clicked" BackgroundColor="Transparent" Scale="0.7"/>
+                    <ImageButton Grid.Column="1" Source="button22.png" Clicked="OnButton2Clicked" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50"/>
+                    <ImageButton Grid.Column="2" Source="Button3.png" Clicked="OnButton3Clicked" BackgroundColor="Transparent" WidthRequest="50" HeightRequest="50"/>
                 </Grid>
             </Grid>
         </ContentPage>
