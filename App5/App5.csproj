@@ -12,16 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Button_image1.png" />
-    <None Remove="Resources\Button_image2.png" />
-    <None Remove="Resources\Button_image3.png" />
     <None Remove="Resources\rukovodstvo.pdf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Button_image1.png" />
-    <EmbeddedResource Include="Resources\Button_image2.png" />
-    <EmbeddedResource Include="Resources\Button_image3.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +32,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoginPageFlyout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfilePageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfilePageFlyout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="RegistrationPage.xaml">

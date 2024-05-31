@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="App5.SelectionPage"
-            xmlns:pages="clr-namespace:App5"
-            IsPresented="false">
-    <FlyoutPage.Flyout>
-        <pages:SelectionPageFlyout x:Name="FlyoutPage" />
-    </FlyoutPage.Flyout>
-    <FlyoutPage.Detail>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.ProfilePage"
+             xmlns:pages="clr-namespace:App5">
+  <FlyoutPage.Flyout>
+    <pages:ProfilePageFlyout x:Name="FlyoutPage" />
+  </FlyoutPage.Flyout>
+  <FlyoutPage.Detail>
         <ContentPage>
             <Grid>
                 <Grid.RowDefinitions>
@@ -16,7 +15,13 @@
                 </Grid.RowDefinitions>
 
 
-
+                <!-- Add the Profile label here -->
+                <Label Grid.Row="0"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Text="Profile"
+                       FontSize="24"
+                       FontAttributes="Bold" />
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
