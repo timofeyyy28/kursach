@@ -31,7 +31,7 @@
 
                     <ImageButton Grid.Column="0" Source="Button1.png" Clicked="OnButton1Clicked" BackgroundColor="Color.Transparent" Scale="0.7"/>
                     <ImageButton Grid.Column="1" Source="Button2.png" Clicked="OnButton2Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
-                    <ImageButton Grid.Column="2" Source="Button3.png" Clicked="OnButton3Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
+                    <ImageButton Grid.Column="2" Source="button33.png" Clicked="OnButton3Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
                 </Grid>
             </Grid>
         </ContentPage>
