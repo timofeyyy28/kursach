@@ -3,26 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App5.ProfilePage"
              xmlns:pages="clr-namespace:App5">
-  <FlyoutPage.Flyout>
-    <pages:ProfilePageFlyout x:Name="FlyoutPage" />
-  </FlyoutPage.Flyout>
-  <FlyoutPage.Detail>
-        <ContentPage>
+    <FlyoutPage.Flyout>
+        <pages:ProfilePageFlyout x:Name="FlyoutPage" />
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <ContentPage BackgroundColor="White">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
+                <!-- Profile Image -->
+                <Image Grid.Row="0" Source="button4.png" HorizontalOptions="Start" VerticalOptions="Start"
+                       WidthRequest="100" HeightRequest="100" Margin="20,20,0,0" />
 
-                <!-- Add the Profile label here -->
-                <Label Grid.Row="0"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Text="Profile"
-                       FontSize="24"
-                       FontAttributes="Bold" />
-                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
+                <!-- Name Label -->
+                <Label Grid.Row="0" Grid.Column="0"
+                       Margin="30, 115, 0, 0"
+                       Text="Name"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Email Label -->
+                <Label Grid.Row="1" Grid.Column="0"
+                       Margin="30,0, 0, 0"
+                       Text="example@gmail.com"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Button Grid -->
+                <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />

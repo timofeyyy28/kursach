@@ -43,7 +43,7 @@
         </StackLayout>
 
         <Button Text="Зарегистрироваться"
-        BackgroundColor="#FFC0CB"
+        BackgroundColor="Pink"
         TextColor="Black"
         FontAttributes="Bold"
         CornerRadius="30"
@@ -81,7 +81,7 @@
 
             <Button Text="Войти"
                     BackgroundColor="Transparent"
-                    TextColor="#FFC0CB"
+                    TextColor="pink"
                     FontAttributes="Bold"
                     CornerRadius="0"
                     Padding="10"
