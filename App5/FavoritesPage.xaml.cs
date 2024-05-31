@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace App5
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SelectionPage : FlyoutPage
+    public partial class FavoritesPage : FlyoutPage
     {
-        public SelectionPage()
+        public FavoritesPage()
         {
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
@@ -19,7 +20,7 @@ namespace App5
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as SelectionPageFlyoutMenuItem;
+            var item = e.SelectedItem as FavoritesPageFlyoutMenuItem;
             if (item == null)
                 return;
 

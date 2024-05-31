@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.FavoritesPage"
+             xmlns:pages="clr-namespace:App5">
+  <FlyoutPage.Flyout>
+    <pages:FavoritesPageFlyout x:Name="FlyoutPage" />
+  </FlyoutPage.Flyout>
+  <FlyoutPage.Detail>
+        <ContentPage>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <!-- Add the Profile label here -->
+                <Label Grid.Row="0"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Text="favorite"
+               FontSize="24"
+               FontAttributes="Bold" />
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Grid.Column="0" Source="Button1.png" Clicked="OnButton1Clicked" BackgroundColor="Color.Transparent" Scale="0.7"/>
+                    <ImageButton Grid.Column="1" Source="Button2.png" Clicked="OnButton2Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
+                    <ImageButton Grid.Column="2" Source="Button3.png" Clicked="OnButton3Clicked" BackgroundColor="Color.Transparent" WidthRequest="50" HeightRequest="50"/>
+                </Grid>
+            </Grid>
+        </ContentPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>
