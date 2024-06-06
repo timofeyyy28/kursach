@@ -1,24 +1,36 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace App5
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
             InitializeComponent();
+            
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());
         }
+
         private async void LoginButton_Clicked1(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SelectionPage());
+            var viewModel = (LoginViewModel)BindingContext;
+
+            YandexCloudAuth yc = new YandexCloudAuth();
+            bool loginSuccess = await yc.SignInAsync(viewModel.Email, viewModel.Password);
+
+            if (loginSuccess)
+            {
+                await Navigation.PushAsync(new SelectionPage());
+            }
+            else
+            {
+                await DisplayAlert("Ошибка", "Ошибка при вводе данных. Пожалуйста, проверьте введенные данные и попробуйте снова.", "OK");
+            }
         }
     }
 }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App5.ProfilePage"
              xmlns:pages="clr-namespace:App5">
+            
     <FlyoutPage.Flyout>
         <pages:ProfilePageFlyout x:Name="FlyoutPage" />
     </FlyoutPage.Flyout>

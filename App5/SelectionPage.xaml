@@ -25,8 +25,9 @@
                     VerticalOptions="FillAndExpand">
                     <StackLayout Padding="10">
                         <Image Source="photo.png" Aspect="AspectFill" HeightRequest="200"/>
-                        <Label Text="Name" FontSize="Medium" FontAttributes="Bold"/>
-                        <Label Text="Description" FontSize="Small"/>
+                        <Label Text="{Binding Place.Name}" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding Place.Description}" FontSize="Small"/>
+                        <Label Text="{Binding Place.Location}" FontSize="Small"/>
                     </StackLayout>
                 </Frame>
 

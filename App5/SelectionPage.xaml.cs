@@ -8,13 +8,33 @@ using Xamarin.Forms.Xaml;
 
 namespace App5
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SelectionPage : FlyoutPage
     {
+        private SelectionPageViewModel viewModel;
+
         public SelectionPage()
         {
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
+            viewModel = new SelectionPageViewModel();
+            BindingContext = viewModel;
+
+            // Load the place data
+            LoadPlaceData();
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        private async void LoadPlaceData()
+        {
+            try
+            {
+                Random rnd = new Random();
+                await viewModel.LoadPlaceAsync(rnd.Next(9, 30));
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to load place data: {ex.Message}", "OK");
+            }
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -31,6 +51,7 @@ namespace App5
 
             FlyoutPage.ListView.SelectedItem = null;
         }
+
         private async void OnButton1Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FavoritesPage());
