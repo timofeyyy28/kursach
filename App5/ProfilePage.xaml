@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App5.ProfilePage"
              xmlns:pages="clr-namespace:App5">
-            
     <FlyoutPage.Flyout>
         <pages:ProfilePageFlyout x:Name="FlyoutPage" />
     </FlyoutPage.Flyout>
@@ -33,7 +32,7 @@
                 <!-- Name Label -->
                 <Label Grid.Row="0" Grid.Column="0"
                        Margin="30, 155, 0, 0"
-                       Text="Name"
+                       Text="{Binding Name}"
                        FontSize="30"
                        FontAttributes="Bold"
                        TextColor="Black" />
@@ -41,7 +40,7 @@
                 <!-- Email Label -->
                 <Label Grid.Row="1" Grid.Column="0"
                        Margin="30,0, 0, 0"
-                       Text="example@gmail.com"
+                       Text="{Binding Email}"
                        FontSize="20"
                        FontAttributes="Bold"
                        TextColor="Black" />

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,9 +7,10 @@ namespace App5
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : FlyoutPage
     {
-        public ProfilePage()
+        public ProfilePage(UserViewModel userViewModel)
         {
             InitializeComponent();
+            BindingContext = userViewModel; // Присваиваем экземпляр UserViewModel в качестве BindingContext
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
             NavigationPage.SetHasNavigationBar(this, false);
         }
@@ -33,6 +29,7 @@ namespace App5
 
             FlyoutPage.ListView.SelectedItem = null;
         }
+
         private async void OnButton1Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FavoritesPage());
@@ -45,7 +42,12 @@ namespace App5
 
         private async void OnButton3Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfilePage());
+            var userViewModel = new UserViewModel
+            {
+                Name = GlobalData.UserName, // Установите реальное имя пользователя
+                Email = GlobalData.UserEmail // Установите реальный адрес электронной почты
+            };
+            await Navigation.PushAsync(new ProfilePage(userViewModel));
         }
     }
 }

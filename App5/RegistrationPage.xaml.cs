@@ -1,10 +1,12 @@
 ﻿using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace App5
 {
     public partial class RegistrationPage : ContentPage
     {
+       
         public RegistrationPage()
         {
             InitializeComponent();
@@ -15,7 +17,7 @@ namespace App5
         {
             await Navigation.PushAsync(new RegistrationPage());
         }
-
+        private RegistrationViewModel viewModel;
         private async void Button_Clicked1(object sender, EventArgs e)
         {
             var viewModel = (RegistrationViewModel)BindingContext;
@@ -25,6 +27,13 @@ namespace App5
 
             if (registrationSuccess)
             {
+                var userViewModel = new UserViewModel
+                {
+                    Name = viewModel.Name,
+                    Email = viewModel.Email
+                };
+                GlobalData.UserName = viewModel.Name;
+                GlobalData.UserEmail = viewModel.Email;
                 await Navigation.PushAsync(new SelectionPage());
             }
             else

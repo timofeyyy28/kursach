@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace App5
@@ -25,6 +26,13 @@ namespace App5
 
             if (loginSuccess)
             {
+                var userViewModel = new UserViewModel
+                {
+                    Name = "UserName", // Замените на реальное значение
+                    Email = viewModel.Email
+                };
+                
+                GlobalData.UserEmail = viewModel.Email;
                 await Navigation.PushAsync(new SelectionPage());
             }
             else
