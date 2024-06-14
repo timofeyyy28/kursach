@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Collections.Generic;
-
+using Npgsql;
 namespace App5
 {
-    public partial class SelectionPage : FlyoutPage
+    public partial class Favorite : FlyoutPage
     {
         private SelectionPageViewModel viewModel;
 
-        public SelectionPage()
+        public Favorite(int id)
         {
             InitializeComponent();
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
@@ -17,26 +16,23 @@ namespace App5
             BindingContext = viewModel;
 
             // Load the place data
-            LoadPlaceData();
+            LoadPlaceData(id);
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private async void LoadPlaceData()
+        private async void LoadPlaceData(int id)
         {
-            
+
             try
-            {
-                Random rnd = new Random();
-                int currentPlace = rnd.Next(1,59);
-                await viewModel.LoadPlaceAsync(currentPlace);
-                GlobalData.CurrentPlace = currentPlace;
+            {               
+                await viewModel.LoadPlaceAsync(id);
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Failed to load place data: {ex.Message}", "OK");
             }
         }
-        
+
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -55,17 +51,8 @@ namespace App5
 
         private async void OnButton1Clicked(object sender, EventArgs e)
         {
-            List<int> likes = await User.GetFavouriteAsync(GlobalData.UserId);
-            if (likes.Count == 0)
-            {
-                await Navigation.PushAsync(new FavoritesPage());
-            }
-            else
-            {
-                await Navigation.PushAsync(new Favorite(likes[0]));
-            }
+            await Navigation.PushAsync(new FavoritesPage());
         }
-        
 
         private async void OnButton2Clicked(object sender, EventArgs e)
         {
@@ -98,6 +85,6 @@ namespace App5
             await like.Like();
         }
 
-        
+
     }
 }

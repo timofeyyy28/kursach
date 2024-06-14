@@ -26,12 +26,17 @@ namespace App5
 
             if (loginSuccess)
             {
+
                 var userViewModel = new UserViewModel
+
                 {
                     Name = "UserName", // Замените на реальное значение
                     Email = viewModel.Email
                 };
-                
+                User user = new User();
+                user = await User.GetUserByEmailAsync(viewModel.Email);
+                GlobalData.UserId = user.Id;
+                GlobalData.UserName = user.Name;
                 GlobalData.UserEmail = viewModel.Email;
                 await Navigation.PushAsync(new SelectionPage());
             }

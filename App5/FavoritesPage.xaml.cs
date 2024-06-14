@@ -52,5 +52,6 @@ namespace App5
             };
             await Navigation.PushAsync(new ProfilePage(userViewModel));
         }
+
     }
 }

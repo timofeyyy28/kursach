@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,7 +33,15 @@ namespace App5
 
         private async void OnButton1Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FavoritesPage());
+            List<int> likes = await User.GetFavouriteAsync(GlobalData.UserId);
+            if (likes.Count == 0)
+            {
+                await Navigation.PushAsync(new FavoritesPage());
+            }
+            else
+            {
+                await Navigation.PushAsync(new Favorite(likes[0]));
+            }
         }
 
         private async void OnButton2Clicked(object sender, EventArgs e)

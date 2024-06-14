@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
@@ -37,7 +38,10 @@ namespace App5
                 Application.Current.SavePropertiesAsync();
             }
         }
-
-        // Другие глобальные данные могут быть добавлены аналогичным образом
+        public static int UserId { get; set; }
+        public static int CurrentPlace {  get; set; }
+        public static List<int> Likes { get; set; }
+        
+        
     }
 }
