@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace App5
 {
@@ -29,7 +25,7 @@ namespace App5
             try
             {
                 Random rnd = new Random();
-                await viewModel.LoadPlaceAsync(rnd.Next(9, 30));
+                await viewModel.LoadPlaceAsync(rnd.Next(1, 59));
             }
             catch (Exception ex)
             {
@@ -52,24 +48,48 @@ namespace App5
             FlyoutPage.ListView.SelectedItem = null;
         }
 
-        private async void OnButton1Clicked(object sender, EventArgs e)
+        private async Task OnButton1Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FavoritesPage());
         }
 
-        private async void OnButton2Clicked(object sender, EventArgs e)
+        private async Task OnButton2Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SelectionPage());
         }
 
-        private async void OnButton3Clicked(object sender, EventArgs e)
+        private async Task OnButton3Clicked(object sender, EventArgs e)
         {
             var userViewModel = new UserViewModel
             {
-                Name = GlobalData.UserName, // Установите реальное имя пользователя
-                Email = GlobalData.UserEmail // Установите реальный адрес электронной почты
+                Name = GlobalData.UserName,
+                Email = GlobalData.UserEmail
             };
             await Navigation.PushAsync(new ProfilePage(userViewModel));
+        }
+
+        private async void OnKrestikClicked(object sender, EventArgs e)
+        {
+            // Ваша логика для кнопки "krestik"
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private async void OnGalkaClicked(object sender, EventArgs e)
+        {
+            // Ваша логика для кнопки "galka"
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private async void OnSwipeLeft(object sender, SwipedEventArgs e)
+        {
+            // Обработчик свайпа влево (для кнопки "krestik")
+            await OnKrestikClicked(sender, e);
+        }
+
+        private async void OnSwipeRight(object sender, SwipedEventArgs e)
+        {
+            // Обработчик свайпа вправо (для кнопки "galka")
+            await OnGalkaClicked(sender, e);
         }
     }
 }

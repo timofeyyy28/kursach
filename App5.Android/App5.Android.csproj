@@ -116,5 +116,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\button4.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\galka.jpg" />
+    <AndroidResource Include="Resources\drawable\krestik.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
