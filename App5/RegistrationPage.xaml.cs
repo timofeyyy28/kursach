@@ -34,7 +34,7 @@ namespace App5
                 };
                 GlobalData.UserName = viewModel.Name;
                 GlobalData.UserEmail = viewModel.Email;
-                await Navigation.PushAsync(new SelectionPage());
+                await Navigation.PushAsync(new LoginPage());
             }
             else
             {
