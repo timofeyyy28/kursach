@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using static System.Net.WebRequestMethods;
 namespace App5
 {
     public class Place
@@ -11,12 +12,14 @@ namespace App5
         public string Description { get; set; }
         public string Type { get; set; }
         public string Location { get; set; }
+        public string Path { get; set; }
 
         public Place() { }
 
         public async Task InitializeAsync(int id)
         {
             await FetchPlaceAsync(id);
+            Path = $"https://storage.yandexcloud.net/placephotos/{id}.png";
         }
 
         private async Task FetchPlaceAsync(int id)

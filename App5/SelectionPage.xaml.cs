@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Collections.Generic;
 
 namespace App5
 {
     public partial class SelectionPage : FlyoutPage
     {
         private SelectionPageViewModel viewModel;
+        private double _translationX;
+        private double _translationY;
 
         public SelectionPage()
         {
             InitializeComponent();
-            FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
             viewModel = new SelectionPageViewModel();
             BindingContext = viewModel;
 
@@ -23,11 +24,10 @@ namespace App5
 
         private async void LoadPlaceData()
         {
-            
             try
             {
                 Random rnd = new Random();
-                int currentPlace = rnd.Next(1,59);
+                int currentPlace = rnd.Next(1, 59);
                 await viewModel.LoadPlaceAsync(currentPlace);
                 GlobalData.CurrentPlace = currentPlace;
             }
@@ -35,22 +35,6 @@ namespace App5
             {
                 await DisplayAlert("Error", $"Failed to load place data: {ex.Message}", "OK");
             }
-        }
-        
-
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var item = e.SelectedItem as SelectionPageFlyoutMenuItem;
-            if (item == null)
-                return;
-
-            var page = (Page)Activator.CreateInstance(item.TargetType);
-            page.Title = item.Title;
-
-            Detail = new NavigationPage(page);
-            IsPresented = false;
-
-            FlyoutPage.ListView.SelectedItem = null;
         }
 
         private async void OnButton1Clicked(object sender, EventArgs e)
@@ -65,7 +49,6 @@ namespace App5
                 await Navigation.PushAsync(new Favorite(likes[0]));
             }
         }
-        
 
         private async void OnButton2Clicked(object sender, EventArgs e)
         {
@@ -84,20 +67,62 @@ namespace App5
 
         private async void OnKrestikClicked(object sender, EventArgs e)
         {
-            // Ваша логика для кнопки "krestik"
-            await Navigation.PushAsync(new SelectionPage());
-            Reaction dislike = new Reaction(GlobalData.UserId, GlobalData.CurrentPlace);
-            await dislike.Dislike();
+            await DislikeCurrentPlace();
         }
 
         private async void OnGalkaClicked(object sender, EventArgs e)
         {
-            // Ваша логика для кнопки "galka"
-            await Navigation.PushAsync(new SelectionPage());
-            Reaction like = new Reaction(GlobalData.UserId, GlobalData.CurrentPlace);
-            await like.Like();
+            await LikeCurrentPlace();
         }
 
-        
+        private async Task DislikeCurrentPlace()
+        {
+            Reaction dislike = new Reaction(GlobalData.UserId, GlobalData.CurrentPlace);
+            await dislike.Dislike();
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private async Task LikeCurrentPlace()
+        {
+            Reaction like = new Reaction(GlobalData.UserId, GlobalData.CurrentPlace);
+            await like.Like();
+            await Navigation.PushAsync(new SelectionPage());
+        }
+
+        private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+        {
+            switch (e.StatusType)
+            {
+                case GestureStatus.Running:
+                    MainFrame.TranslationX = _translationX + e.TotalX;
+                    MainFrame.TranslationY = _translationY + e.TotalY;
+                    MainFrame.Rotation = 0.3 * (MainFrame.TranslationX / this.Width) * 180; // For rotation effect
+                    break;
+
+                case GestureStatus.Completed:
+                    _translationX = MainFrame.TranslationX;
+                    _translationY = MainFrame.TranslationY;
+
+                    // Check if swipe threshold is met to trigger actions (like/dislike)
+                    if (Math.Abs(MainFrame.TranslationX) > 150)
+                    {
+                        if (MainFrame.TranslationX > 0)
+                        {
+                            LikeCurrentPlace();
+                        }
+                        else
+                        {
+                            DislikeCurrentPlace();
+                        }
+                    }
+                    else
+                    {
+                        // Reset position if swipe threshold is not met
+                        MainFrame.TranslateTo(0, 0, 250, Easing.SpringOut);
+                        MainFrame.RotateTo(0, 250, Easing.SpringOut);
+                    }
+                    break;
+            }
+        }
     }
 }

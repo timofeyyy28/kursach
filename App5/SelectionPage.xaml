@@ -10,7 +10,6 @@
     <FlyoutPage.Detail>
         <ContentPage>
             <Grid BackgroundColor="White">
-                <!-- Set the background of the entire grid to white -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -18,24 +17,43 @@
                 </Grid.RowDefinitions>
 
                 <Frame
+                    x:Name="MainFrame"
                     Grid.Row="0"
                     CornerRadius="10"
                     BorderColor="Black"
                     BackgroundColor="White"
                     Margin="10"
+                    Padding="4"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand">
-                    <StackLayout Padding="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                        <!-- Вставьте URL вашего изображения -->
-                        <Image Source="https://storage.yandexcloud.net/placephotos/esplanada.png"
-                            VerticalOptions="CenterAndExpand"
-                            HorizontalOptions="CenterAndExpand" />
+                        <Frame
+                            VerticalOptions="Center"
+                            HorizontalOptions="FillAndExpand"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            Padding="0"
+                            IsClippedToBounds="True">
+                            <Image Source="{Binding Place.Path}"
+                                Aspect="AspectFill"
+                                HeightRequest="300" />
+                        </Frame>
 
-                        <Label Text="{Binding Place.Name}" FontSize="Medium" FontAttributes="Bold"/>
-                        <Label Text="{Binding Place.Description}" FontSize="Small"/>
-                        <Label Text="{Binding Place.Location}" FontSize="Small"/>
-                    </StackLayout>
+                        <StackLayout Grid.Row="1" Padding="10">
+                            <Label Text="{Binding Place.Name}" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Text="{Binding Place.Description}" FontSize="Small"/>
+                            <Label Text="{Binding Place.Location}" FontSize="Small"/>
+                        </StackLayout>
+                    </Grid>
+                    <!-- Add PanGestureRecognizer to the outer Frame -->
+                    <Frame.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End">
@@ -44,10 +62,8 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <!-- Empty row for spacing -->
                     <BoxView Grid.Row="0" BackgroundColor="Transparent" />
 
-                    <!-- Row with 'krestik' and 'galka' buttons positioned to left and right -->
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -58,15 +74,11 @@
                         </Grid.ColumnDefinitions>
 
                         <BoxView Grid.Column="0" BackgroundColor="Transparent" />
-                        <!-- Empty space to center the buttons -->
 
-                        <!-- krestik button, moved slightly higher and to the left -->
                         <ImageButton Grid.Column="1" Grid.Row="0" Source="krestik.jpg" Clicked="OnKrestikClicked" BackgroundColor="Transparent" WidthRequest="60" HeightRequest="60" Margin="-10,-10,0,0" />
 
                         <BoxView Grid.Column="2" BackgroundColor="Transparent" WidthRequest="20" />
-                        <!-- Empty space to center the buttons -->
 
-                        <!-- galka button, moved slightly higher and to the right -->
                         <ImageButton Grid.Column="3" Grid.Row="0" Source="galka.jpg" Clicked="OnGalkaClicked" BackgroundColor="Transparent" WidthRequest="60" HeightRequest="60" Margin="0,-10,-10,0" />
 
                         <BoxView Grid.Column="4" BackgroundColor="Transparent" />
