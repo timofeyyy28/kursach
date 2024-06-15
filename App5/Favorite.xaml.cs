@@ -7,7 +7,8 @@ namespace App5
     public partial class Favorite : FlyoutPage
     {
         private SelectionPageViewModel viewModel;
-
+        private double _translationX;
+        private double _translationY;
         public Favorite(int id)
         {
             InitializeComponent();
@@ -68,22 +69,44 @@ namespace App5
             };
             await Navigation.PushAsync(new ProfilePage(userViewModel));
         }
-
-        private async void OnKrestikClicked(object sender, EventArgs e)
+        private async void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
-            // Ваша логика для кнопки "krestik"
-            await Navigation.PushAsync(new SelectionPage());
-            Reaction dislike = new Reaction(GlobalData.UserId, GlobalData.CurrentPlace);
-            await dislike.Dislike();
+            switch (e.StatusType)
+            {
+                case GestureStatus.Running:
+                    MainFrame.TranslationX = _translationX + e.TotalX;
+                    MainFrame.TranslationY = _translationY + e.TotalY;
+                    MainFrame.Rotation = 0.3 * (MainFrame.TranslationX / this.Width) * 180; // For rotation effect
+                    break;
+
+                case GestureStatus.Completed:
+                    _translationX = MainFrame.TranslationX;
+                    _translationY = MainFrame.TranslationY;
+
+                    // Check if swipe threshold is met to trigger actions (like/dislike)
+                    if (Math.Abs(MainFrame.TranslationX) > 150)
+                    {
+                        if (MainFrame.TranslationX > 0)
+                        {
+                            Lovely.Current++;
+                            await Navigation.PushAsync(new Favorite(Lovely.Love[Lovely.Current]));
+                        }
+                        else
+                        {
+                            Lovely.Current++;
+                            await Navigation.PushAsync(new Favorite(Lovely.Love[Lovely.Current]));
+                        }
+                    }
+                    else
+                    {
+                        // Reset position if swipe threshold is not met
+                        MainFrame.TranslateTo(0, 0, 250, Easing.SpringOut);
+                        MainFrame.RotateTo(0, 250, Easing.SpringOut);
+                    }
+                    break;
+            }
         }
 
-        private async void OnGalkaClicked(object sender, EventArgs e)
-        {
-            // Ваша логика для кнопки "galka"
-            await Navigation.PushAsync(new SelectionPage());
-            Reaction like = new Reaction(GlobalData.UserId, GlobalData.CurrentPlace);
-            await like.Like();
-        }
 
 
     }

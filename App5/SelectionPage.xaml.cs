@@ -46,7 +46,8 @@ namespace App5
             }
             else
             {
-                await Navigation.PushAsync(new Favorite(likes[0]));
+                await Lovely.UpdateLoveAsync(GlobalData.UserId);
+                await Navigation.PushAsync(new Favorite(Lovely.Love[Lovely.Current]));
             }
         }
 
