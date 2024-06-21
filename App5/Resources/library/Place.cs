@@ -1,43 +1,95 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using static System.Net.WebRequestMethods;
-namespace App5
+
+public class Place : INotifyPropertyChanged
 {
-    public class Place
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    private string name;
+    public string Name
     {
-        public int PlaceId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Type { get; set; }
-        public string Location { get; set; }
-        public string Path { get; set; }
-
-        public Place() { }
-
-        public async Task InitializeAsync(int id)
+        get => name;
+        set
         {
-            await FetchPlaceAsync(id);
-            Path = $"https://storage.yandexcloud.net/placephotos/{id}.png";
-        }
-
-        private async Task FetchPlaceAsync(int id)
-        {
-            using (HttpClient client = new HttpClient())
+            if (name != value)
             {
-                HttpResponseMessage response = await client.GetAsync($"https://functions.yandexcloud.net/d4efabacb9d3f3gupg8i?id={id}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string json = await response.Content.ReadAsStringAsync();
-                    JsonConvert.PopulateObject(json, this);
-                }
-                else
-                {
-                    throw new Exception($"Failed to retrieve place with ID {id}: {response.ReasonPhrase}");
-                }
+                name = value;
+                OnPropertyChanged(nameof(Name));
             }
         }
+    }
+
+    private string description;
+    public string Description
+    {
+        get => description;
+        set
+        {
+            if (description != value)
+            {
+                description = value;
+                OnPropertyChanged(nameof(Description));
+            }
+        }
+    }
+
+    private string location;
+    public string Location
+    {
+        get => location;
+        set
+        {
+            if (location != value)
+            {
+                location = value;
+                OnPropertyChanged(nameof(Location));
+            }
+        }
+    }
+
+    private string path;
+    public string Path
+    {
+        get => path;
+        set
+        {
+            if (path != value)
+            {
+                path = value;
+                OnPropertyChanged(nameof(Path));
+            }
+        }
+    }
+
+    public async Task InitializeAsync(int id)
+    {
+        await FetchPlaceAsync(id);
+        Path = $"https://storage.yandexcloud.net/placephotos/{id}.png";
+    }
+
+    private async Task FetchPlaceAsync(int id)
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            HttpResponseMessage response = await client.GetAsync($"https://functions.yandexcloud.net/d4efabacb9d3f3gupg8i?id={id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+                JsonConvert.PopulateObject(json, this);
+            }
+            else
+            {
+                throw new Exception($"Failed to retrieve place with ID {id}: {response.ReasonPhrase}");
+            }
+        }
+    }
+
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
