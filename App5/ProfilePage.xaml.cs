@@ -51,12 +51,12 @@ namespace App5
 
         private async void OnButton3Clicked(object sender, EventArgs e)
         {
-            var userViewModel = new UserViewModel
-            {
-                Name = GlobalData.UserName, // Установите реальное имя пользователя
-                Email = GlobalData.UserEmail // Установите реальный адрес электронной почты
-            };
-            await Navigation.PushAsync(new ProfilePage(userViewModel));
+            //var userViewModel = new UserViewModel
+            //{
+             //   Name = GlobalData.UserName, // Установите реальное имя пользователя
+             //  Email = GlobalData.UserEmail // Установите реальный адрес электронной почты
+           // };
+           // await Navigation.PushAsync(new ProfilePage(userViewModel));
         }
     }
 }

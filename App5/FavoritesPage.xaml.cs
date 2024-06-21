@@ -35,7 +35,7 @@ namespace App5
         }
         private async void OnButton1Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FavoritesPage());
+            //await Navigation.PushAsync(new FavoritesPage());
         }
 
         private async void OnButton2Clicked(object sender, EventArgs e)

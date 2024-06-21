@@ -45,9 +45,9 @@
                         </Frame>
 
                         <StackLayout Grid.Row="1" Padding="10">
-                            <Label Text="{Binding Place.Name}" FontSize="Medium" FontAttributes="Bold"/>
-                            <Label Text="{Binding Place.Description}" FontSize="Small"/>
-                            <Label Text="{Binding Place.Location}" FontSize="Small"/>
+                            <Label Text="{Binding Place.Name}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="{Binding Place.Description}" FontSize="Small" TextColor="Black"/>
+                            <Label Text="{Binding Place.Location}" FontSize="Small" TextColor="Black"/>
                         </StackLayout>
                     </Grid>
                     <!-- Add PanGestureRecognizer to the outer Frame -->
