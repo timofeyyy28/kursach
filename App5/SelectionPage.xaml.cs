@@ -33,6 +33,13 @@ namespace App5
                     await viewModel.LoadPlaceAsync((int)currentPlace);
                     GlobalData.CurrentPlace = (int)currentPlace;
                 }
+                else
+                {
+                    Random rnd = new Random();
+                    int id = rnd.Next(1, 59);
+                    await viewModel.LoadPlaceAsync(id);
+                    GlobalData.CurrentPlace = id;
+                }
                
             }
             catch (Exception ex)
