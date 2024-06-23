@@ -26,10 +26,14 @@ namespace App5
         {
             try
             {
-                Random rnd = new Random();
-                int currentPlace = rnd.Next(1, 59);
-                await viewModel.LoadPlaceAsync(currentPlace);
-                GlobalData.CurrentPlace = currentPlace;
+                //Random rnd = new Random();
+                int? currentPlace = await Recommendation.GetNearestNeighborAsync(GlobalData.UserId);
+                if (currentPlace != null)
+                {
+                    await viewModel.LoadPlaceAsync((int)currentPlace);
+                    GlobalData.CurrentPlace = (int)currentPlace;
+                }
+               
             }
             catch (Exception ex)
             {
@@ -53,7 +57,7 @@ namespace App5
 
         private async void OnButton2Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SelectionPage());
+            //await Navigation.PushAsync(new SelectionPage());
         }
 
         private async void OnButton3Clicked(object sender, EventArgs e)
