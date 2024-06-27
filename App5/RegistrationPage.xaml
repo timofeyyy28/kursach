@@ -1,5 +1,6 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:App5"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App5"
              x:Class="App5.RegistrationPage">
 
     <ContentPage.BindingContext>
@@ -20,23 +21,23 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Text="Дата рождения" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
-        <Frame Grid.Row="1" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" Placeholder="Введите дату рождения" TextColor="Black" Text="{Binding BirthDate}"/>
+        <Frame Grid.Row="1" HeightRequest="60" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry HeightRequest="40" BackgroundColor="Pink" Placeholder="Введите дату рождения" TextColor="Black" Text="{Binding BirthDate}"/>
         </Frame>
 
         <Label Grid.Row="2" Text="Имя" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
-        <Frame Grid.Row="3" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" Placeholder="Введите имя" TextColor="Black" Text="{Binding Name}"/>
+        <Frame Grid.Row="3" HeightRequest="60" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry HeightRequest="40" BackgroundColor="Pink" Placeholder="Введите имя" TextColor="Black" Text="{Binding Name}"/>
         </Frame>
 
         <Label Grid.Row="4" Text="Электронная почта" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
-        <Frame Grid.Row="5" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" Placeholder="Введите электронную почту" TextColor="Black" Keyboard="Email" Text="{Binding Email}"/>
+        <Frame Grid.Row="5" HeightRequest="60" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry HeightRequest="40" BackgroundColor="Pink" Placeholder="Введите электронную почту" TextColor="Black" Keyboard="Email" Text="{Binding Email}"/>
         </Frame>
 
         <Label Grid.Row="6" Text="Пароль" FontSize="20" FontAttributes="Bold" TextColor="Black" Margin="10,0,-10,0"/>
-        <Frame Grid.Row="7" HeightRequest="40" WidthRequest="150" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
-            <Entry BackgroundColor="Pink" Placeholder="Введите пароль" TextColor="Black" IsPassword="True" Text="{Binding Password}"/>
+        <Frame Grid.Row="7" HeightRequest="60" BackgroundColor="#FFC0CB" CornerRadius="20" BorderColor="#FF69B4" Margin="10">
+            <Entry HeightRequest="40" BackgroundColor="Pink" Placeholder="Введите пароль" TextColor="Black" IsPassword="True" Text="{Binding Password}"/>
         </Frame>
 
         <Button Text="Зарегистрироваться"
@@ -47,7 +48,7 @@
                 Padding="20,10"
                 FontSize="15"
                 HorizontalOptions="Center"
-                VerticalOptions="Center"
+                VerticalOptions="End"
                 Grid.Row="8"
                 Clicked="Button_Clicked1"/>
     </Grid>
