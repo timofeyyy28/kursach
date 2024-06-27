@@ -15,7 +15,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!-- TextLogo Sights -->
+                
                 <Label Text="Sights"
                    FontSize="35"
                    FontAttributes="Bold"
@@ -25,11 +25,11 @@
                    VerticalOptions="Start"
                    Grid.Row="0"/>
 
-                <!-- Profile Image -->
+               
                 <Image Grid.Row="0" Source="button4.png" HorizontalOptions="Start" VerticalOptions="Start"
                        WidthRequest="100" HeightRequest="100" Margin="20,60,0,0" />
 
-                <!-- Name Label -->
+              
                 <Label Grid.Row="0" Grid.Column="0"
                        Margin="30, 155, 0, 0"
                        Text="{Binding Name}"
@@ -37,7 +37,7 @@
                        FontAttributes="Bold"
                        TextColor="Black" />
 
-                <!-- Email Label -->
+              
                 <Label Grid.Row="1" Grid.Column="0"
                        Margin="30,0, 0, 0"
                        Text="{Binding Email}"
@@ -45,7 +45,7 @@
                        FontAttributes="Bold"
                        TextColor="Black" />
 
-                <!-- Button Grid -->
+               
                 <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="#EEEEEE">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

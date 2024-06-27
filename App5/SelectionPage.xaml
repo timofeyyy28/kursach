@@ -50,7 +50,7 @@
                             <Label Text="{Binding Place.Location}" FontSize="Small" TextColor="Black"/>
                         </StackLayout>
                     </Grid>
-                    <!-- Add PanGestureRecognizer to the outer Frame -->
+                   
                     <Frame.GestureRecognizers>
                         <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
                     </Frame.GestureRecognizers>
