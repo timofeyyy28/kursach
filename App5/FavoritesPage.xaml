@@ -14,7 +14,6 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!-- TextLogo Sight -->
                 <Label Text="Sights"
                    FontSize="35"
                    FontAttributes="Bold"
@@ -24,7 +23,7 @@
                    VerticalOptions="Start"
                    Grid.Row="0"/>
 
-                <!-- Add the Profile label here -->
+               
                 <Label Grid.Row="0"
                HorizontalOptions="Center"
                VerticalOptions="Center"

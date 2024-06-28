@@ -47,8 +47,8 @@ namespace App5
         {
             var userViewModel = new UserViewModel
             {
-                Name = GlobalData.UserName, // Установите реальное имя пользователя
-                Email = GlobalData.UserEmail // Установите реальный адрес электронной почты
+                Name = GlobalData.UserName,
+                Email = GlobalData.UserEmail 
             };
             await Navigation.PushAsync(new ProfilePage(userViewModel));
         }

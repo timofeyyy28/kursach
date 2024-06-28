@@ -17,7 +17,7 @@ namespace App5
             viewModel = new SelectionPageViewModel();
             BindingContext = viewModel;
 
-            // Load the place data
+           
             LoadPlaceData();
             NavigationPage.SetHasNavigationBar(this, false);
         }
@@ -26,7 +26,7 @@ namespace App5
         {
             try
             {
-                //Random rnd = new Random();
+               
                 int? currentPlace = await Recommendation.GetNearestNeighborAsync(GlobalData.UserId);
                 if (currentPlace != null)
                 {
@@ -108,14 +108,14 @@ namespace App5
                 case GestureStatus.Running:
                     MainFrame.TranslationX = _translationX + e.TotalX;
                     MainFrame.TranslationY = _translationY + e.TotalY;
-                    MainFrame.Rotation = 0.3 * (MainFrame.TranslationX / this.Width) * 180; // For rotation effect
+                    MainFrame.Rotation = 0.3 * (MainFrame.TranslationX / this.Width) * 180;
                     break;
 
                 case GestureStatus.Completed:
                     _translationX = MainFrame.TranslationX;
                     _translationY = MainFrame.TranslationY;
 
-                    // Check if swipe threshold is met to trigger actions (like/dislike)
+                    
                     if (Math.Abs(MainFrame.TranslationX) > 150)
                     {
                         if (MainFrame.TranslationX > 0)
@@ -129,7 +129,7 @@ namespace App5
                     }
                     else
                     {
-                        // Reset position if swipe threshold is not met
+                        
                         MainFrame.TranslateTo(0, 0, 250, Easing.SpringOut);
                         MainFrame.RotateTo(0, 250, Easing.SpringOut);
                     }

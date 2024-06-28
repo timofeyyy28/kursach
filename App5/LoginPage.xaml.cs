@@ -30,7 +30,7 @@ namespace App5
                 var userViewModel = new UserViewModel
 
                 {
-                    Name = "UserName", // Замените на реальное значение
+                    Name = "UserName", 
                     Email = viewModel.Email
                 };
                 User user = new User();

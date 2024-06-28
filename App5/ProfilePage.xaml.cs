@@ -11,7 +11,7 @@ namespace App5
         public ProfilePage(UserViewModel userViewModel)
         {
             InitializeComponent();
-            BindingContext = userViewModel; // Присваиваем экземпляр UserViewModel в качестве BindingContext
+            BindingContext = userViewModel; 
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
             NavigationPage.SetHasNavigationBar(this, false);
         }
@@ -53,8 +53,8 @@ namespace App5
         {
             //var userViewModel = new UserViewModel
             //{
-             //   Name = GlobalData.UserName, // Установите реальное имя пользователя
-             //  Email = GlobalData.UserEmail // Установите реальный адрес электронной почты
+             //   Name = GlobalData.UserName, 
+             //  Email = GlobalData.UserEmail 
            // };
            // await Navigation.PushAsync(new ProfilePage(userViewModel));
         }
